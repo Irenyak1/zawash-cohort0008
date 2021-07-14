@@ -1,0 +1,42 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Za Wash
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-home-tab.nav-item.nav-link.active(href='/') Home
+        a#nav-profile-tab.nav-item.nav-link(href='/register/vehicle')  Add Vehicle
+        a#nav-contact-tab.nav-item.nav-link(href='/register/washer')  Add Washer
+        a#nav-profile-tab.nav-item.nav-link(href='/register/expenses')  Add Expenses
+        a#nav-contact-tab.nav-item.nav-link(href='/register/manager')  Add Manager
+    #nav-tabContent.tab-content
+        br
+        div.form-row 
+            table.table.table-bordered 
+                thead
+                    tr
+                        th Package
+                        th Price
+                        th Washer Fee
+                tbody
+                    tr
+                        td Small cars
+                        td 10000/=
+                        td 3000/=
+                    tr
+                        td Medium
+                        td 15000/=
+                        td 4000/=
+                    tr
+                        td Full wash
+                        td 20000/=
+                        td 5000/=
+                    tr
+                        td Boda-boda
+                        td 5000/=
+                        td 1500/=
+                    tr
+                        td Engine
+                        td 10000/=
+                        td 2000/=

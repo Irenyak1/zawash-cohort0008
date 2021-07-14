@@ -1,0 +1,42 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Car Washer Details
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-profile-tab.nav-item.nav-link(href='/report/payout') Washer Payout
+        a#nav-contact-tab.nav-item.nav-link(href='/report/expenses-report')  Expense Report
+        a#nav-contact-tab.nav-item.nav-link(href='/report/collection')  Collection Report
+        a#nav-profile-tab.nav-item.nav-link.active(href='/report/washer-details') Washer Details
+    #nav-tabContent.tab-content
+    br
+    table.table.table-bordered 
+        thead
+            tr
+                th Full Name 
+                th NIN
+                th Date of Birth
+                th Phone number
+                th Gender
+                th Place of residence
+                th
+        tbody
+            if users.length
+                each user in users
+                    tr
+                        td #{user.lastname +' '+ user.firstname}
+                        td #{user.nin}
+                        td #{moment(user.dob).format('DD/MM/YYYY')}
+                        td #{user.phonenumber}
+                        td #{user.gender}
+                        td #{user.residence}
+                        td
+                            form(method="post" action='/register/delete-washer')
+                                input(type="hidden", placeholder="", name="id", value=user._id)
+                                button.btn.btn-primary.btn-block(type="submit") Delete
+    
+    
+
+        
+                

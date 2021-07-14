@@ -1,0 +1,51 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register Car Washer 
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-home-tab.nav-item.nav-link(href='/') Home
+        a#nav-profile-tab.nav-item.nav-link(href='/register/vehicle')  Add Vehicle
+        a#nav-contact-tab.nav-item.nav-link.active(href='/register/washer')  Add Washer
+        a#nav-profile-tab.nav-item.nav-link(href='/register/expenses')  Add Expenses
+        a#nav-contact-tab.nav-item.nav-link(href='/register/manager')  Add Manager
+    #nav-tabContent.tab-content
+        br
+        if alert == "success"
+            div.alert.alert-success Washer added successfully
+        if alert == "error"
+            div.alert.alert-danger An error occurred, failed to add washer
+        form(method="POST" action='/register/washer')
+            div.form-row
+                div.col.form-group
+                    label First name 
+                    input.form-control(name="firstname")
+                div.col.form-group
+                    label Last name
+                    input.form-control(name="lastname")
+                div.col.form-group
+                    label Date of Birth
+                    input.form-control(type="date" name="dob")
+            div.form-row
+                div.col.form-group
+                    label NIN
+                    input.form-control(name="nin")
+                div.col.form-group
+                    label Phone number
+                    input.form-control(name="phonenumber")
+                div.col.form-group
+                    label Gender
+                    select.form-control(name="gender")
+                        option(value="female")  Female
+                        option(value="male") Male
+            div.form-row
+                div.col.form-group
+                    label Place of residence
+                    input.form-control(name="residence")
+            div.form-row
+                div.col.form-group
+                    button.btn.btn-primary.btn-block Add washer 
+                
+
+                            

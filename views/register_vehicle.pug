@@ -1,0 +1,57 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register Vehicle 
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-home-tab.nav-item.nav-link(href='/') Home
+        a#nav-profile-tab.nav-item.nav-link.active(href='/register/vehicle')  Add Vehicle
+        a#nav-contact-tab.nav-item.nav-link(href='/register/washer')  Add Washer
+        a#nav-profile-tab.nav-item.nav-link(href='/register/expenses')  Add Expenses
+        a#nav-contact-tab.nav-item.nav-link(href='/register/manager')  Add Manager
+    #nav-tabContent.tab-content
+        br
+        if alert == "success"
+            div.alert.alert-success Vehicle added successfully
+        if alert == "error"
+            div.alert.alert-danger An error occurred, failed to add vehicle
+        form(method="POST" action='/register/vehicle')
+            div.form-row
+                div.col.form-group
+                    label Number plate
+                    input.form-control(name="numberplate")
+                div.col.form-group
+                    label Color
+                    input.form-control(name="color")
+            div.form-row
+                div.col.form-group
+                    label Date of arrival
+                    input.form-control(type="date" name="doa")
+                div.col.form-group
+                    label Time of arrival
+                    input.form-control(type="time" name="toa")
+            div.form-row
+                div.col.form-group
+                    label Make
+                    input.form-control(name="make")
+
+                div.col.form-group
+                    label Washer
+                    select.form-control(name="washer")
+                        each washer in washers
+                            option(value=washer._id) #{washer.firstname +' '+ washer.lastname}
+                div.col.form-group
+                    label Package
+                    select.form-control(name="package")
+                        option(value="smallcars")  Small cars(10,000/=)
+                        option(value="medium") Medium(15,000/=)
+                        option(value="fullwash") Full wash(20,000/=)
+                        option(value="bodaboda") Boda-boda(5,000/=)
+                        option(value="engine") Engine(10,000/=)
+            div.form-row
+                div.col.form-group
+                    button.btn.btn-primary.btn-block Add vehicle 
+                
+
+                            

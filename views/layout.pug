@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        title= title
+    body
+        div.row.justify-content-center
+            div.col-md-6
+                div.card-body
+                    block content
+    footer.row.justify-content-center
+        div.col-md-6
+            block footer
+            div.float-left
+                a(href='/') Registrations 
+                span | 
+                a(href='/report/payout') Reports
+                span | 
+                 a(href='/logout') Logout
+            div.float-right © 2021 Refactory Cohort 0008, NodeJS.

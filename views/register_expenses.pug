@@ -1,0 +1,39 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register Expenses
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-home-tab.nav-item.nav-link(href='/') Home
+        a#nav-profile-tab.nav-item.nav-link(href='/register/vehicle')  Add Vehicle
+        a#nav-contact-tab.nav-item.nav-link(href='/register/washer')  Add Washer
+        a#nav-profile-tab.nav-item.nav-link.active(href='/register/expenses')  Add Expenses
+        a#nav-contact-tab.nav-item.nav-link(href='/register/manager')  Add Manager
+    #nav-tabContent.tab-content
+        br
+        if alert == "success"
+            div.alert.alert-success Expense added successfully
+        if alert == "error"
+            div.alert.alert-danger An error occurred, failed to add expenses
+        form(method="POST" action='/register/expenses')
+            div.form-row
+                div.col.form-group
+                    label Date of Entry
+                    input.form-control(type="date" name="doe")
+            div.form-row
+                div.col.form-group
+                    label Item type
+                    select.form-control(name="item")
+                        option(value="polish")  Polish
+                        option(value="detergent") Powdered detergents
+                        option(value="electricity units") Electricity units
+                div.col.form-group
+                    label Amount
+                    input.form-control(type="number" name="amount")
+            div.form-row
+                div.col.form-group
+                    button.btn.btn-primary.btn-block Add expense 
+                
+
+                            

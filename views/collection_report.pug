@@ -1,0 +1,36 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Collections Report
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-profile-tab.nav-item.nav-link(href='/report/payout') Washer Payout
+        a#nav-contact-tab.nav-item.nav-link(href='/report/expenses-report')  Expense Report
+        a#nav-contact-tab.nav-item.nav-link.active(href='/report/collection')  Collection Report
+        a#nav-profile-tab.nav-item.nav-link(href='/report/washer-details') Washer Details
+    #nav-tabContent.tab-content
+        br
+        form.search(action='/report/collection')
+            div.form-row
+                div.col-md-8
+                    input.form-control(type="date" name="searchdate" value=defaultDate)
+                div.col-md-4
+                    input.btn.btn-primary.btn-block(type="submit")
+        br
+        table.table.table-bordered 
+            thead
+                tr
+                    th Date of Arrival
+                    th Vehicle
+                    th Amount
+            tbody
+            if collections.length
+                each collection in collections
+                    tr
+                        td #{moment(collection.datetimeArrival).format('DD-MM-YYYY hh:mm')}
+                        td #{collection.numberplate}
+                        td #{collection.packagePrice}
+                tr
+                    th(colspan=2) Total Collections
+                    td #{new Intl.NumberFormat().format(total.totalCollection)}
