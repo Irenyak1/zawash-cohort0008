@@ -22,7 +22,8 @@ const app = express()
 //mongodb connection
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 
 mongoose.connection
@@ -50,6 +51,7 @@ passport.use(Manager.createStrategy());
 passport.serializeUser(Manager.serializeUser());
 passport.deserializeUser(Manager.deserializeUser());
 
+
 var loginChecker = function (req, res, next) {
   if (req.path != '/login' && !req.session.user) {
     res.redirect('/login')
@@ -70,4 +72,4 @@ app.get('*', (req, res) => {
 })
 
 // server
-app.listen(3001, () => console.log("Listening on Port 3000!!!"));
+app.listen(3001, () => console.log("Listening on Port 3001!!!"));

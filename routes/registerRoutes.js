@@ -14,10 +14,9 @@ washPackages = {
     bodaboda: { washerFee: 1500, packagePrice: 5000 },
     engine: { washerFee: 2000, packagePrice: 10000 }
 }
+
 router.get('/washer', (req, res) => {
-    res.render('register_washer', {
-        title: "Register Car Washer",
-        alert: req.query.alert
+    res.render('register_washer', { title: "Register Car Washer", alert: req.query.alert
     })
 })
 
@@ -65,9 +64,7 @@ router.post("/vehicle", async (req, res) => {
 })
 
 router.get('/manager', (req, res) => {
-    res.render('register_manager', {
-        title: "Register Manager",
-        alert: req.query.alert
+    res.render('register_manager', { title: "Register Manager", alert: req.query.alert
     })
 })
 
@@ -108,4 +105,5 @@ router.post('/delete-washer', async (req, res) => {
         res.status(400).send("Unable to delete item in the database");
     }
 })
+
 module.exports = router;
